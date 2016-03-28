@@ -14,6 +14,8 @@
 #import "HJCTopicPictureView.h"
 #import "HJCTopicVoiceView.h"
 #import "HJCTopicVideoView.h"
+#import "HJCComment.h"
+#import "HJCUser.h"
 
 #import <UIImageView+WebCache.h>
 
@@ -41,7 +43,10 @@
 @property (nonatomic, weak) HJCTopicVoiceView *voiceView;
 /** 视屏View */
 @property (nonatomic, weak) HJCTopicVideoView *videoView;
-
+/** 最热评论内容 */
+@property (weak, nonatomic) IBOutlet UILabel *topcmdLabel;
+/** 最热评论整体 */
+@property (weak, nonatomic) IBOutlet UIView *topcmdView;
 @end
 
 @implementation HJCTopicCell
@@ -123,6 +128,15 @@
         self.pictureView.hidden = YES;
         self.voiceView.hidden = YES;
         self.videoView.hidden = YES;
+    }
+    
+    //  最热评论
+    HJCComment *topcmd = [topic.top_cmt firstObject];
+    if (topcmd) {
+        self.topcmdLabel.text = [NSString stringWithFormat:@"%@:%@",topcmd.user.username, topcmd.content];
+        self.topcmdView.hidden = NO;
+    } else {
+        self.topcmdView.hidden = YES;
     }
 }
 

@@ -26,7 +26,7 @@
 @property (nonatomic, assign) NSInteger repost;
 /** 评论的数量 */
 @property (nonatomic, assign) NSInteger comment;
-
+/** 是否是GIF */
 @property (nonatomic, copy) NSString *is_gif;
 /** 图片的宽度 */
 @property (nonatomic, assign) CGFloat width;
@@ -46,6 +46,8 @@
 @property (nonatomic, copy) NSString *playcount;
 /** 视频时长 */
 @property (nonatomic, copy) NSString *videotime;
+/** 最热评论（存放着HJCComment模型） */
+@property (nonatomic, copy) NSArray *top_cmt;
 
 
 

@@ -24,3 +24,8 @@ UIKIT_EXTERN CGFloat const HJCTopicCellTextY;
 UIKIT_EXTERN CGFloat const HJCTopicCellBottomBarH;
 UIKIT_EXTERN CGFloat const HJCTopicCellPictureMaxH;
 UIKIT_EXTERN CGFloat const HJCTopicCellPictureFixedH;
+
+UIKIT_EXTERN NSString * const HJCUserSexMale;
+UIKIT_EXTERN NSString * const HJCuserSexFemale;
+
+UIKIT_EXTERN CGFloat const HJCTopicCellTopcmdTitleLabelH;

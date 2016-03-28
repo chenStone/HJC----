@@ -7,11 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="topic" rowHeight="200" id="KGk-i7-Jjw" customClass="HJCTopicCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="topic" rowHeight="388" id="KGk-i7-Jjw" customClass="HJCTopicCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="388"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="387.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zs0-VZ-bzd" userLabel="头像">
@@ -44,7 +44,7 @@
                         <state key="highlighted" image="cellFollowClickIcon"/>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iel-UA-1O7" userLabel="底部View">
-                        <rect key="frame" x="0.0" y="155" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="343.5" width="320" height="44"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tt4-Me-jbz" userLabel="顶">
                                 <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
@@ -150,6 +150,37 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cd0-K0-jn8">
+                        <rect key="frame" x="10" y="296.5" width="300" height="37"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sN9-Rk-PS7">
+                                <rect key="frame" x="0.0" y="0.0" width="57" height="21"/>
+                                <color key="backgroundColor" red="0.6705882352941176" green="0.6705882352941176" blue="0.6705882352941176" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="3Hk-nB-u0t"/>
+                                    <constraint firstAttribute="height" constant="21" id="cPC-35-XaE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EK7-1p-8fk" userLabel="评论内容">
+                                <rect key="frame" x="0.0" y="21" width="300" height="16"/>
+                                <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="EK7-1p-8fk" firstAttribute="leading" secondItem="cd0-K0-jn8" secondAttribute="leading" id="343-PT-0Tt"/>
+                            <constraint firstItem="EK7-1p-8fk" firstAttribute="top" secondItem="sN9-Rk-PS7" secondAttribute="bottom" id="52n-wD-gCX"/>
+                            <constraint firstItem="sN9-Rk-PS7" firstAttribute="top" secondItem="cd0-K0-jn8" secondAttribute="top" id="6HU-rX-dOs"/>
+                            <constraint firstItem="sN9-Rk-PS7" firstAttribute="leading" secondItem="cd0-K0-jn8" secondAttribute="leading" id="Tug-Nx-YF5"/>
+                            <constraint firstAttribute="bottom" secondItem="EK7-1p-8fk" secondAttribute="bottom" id="brw-e0-OFy"/>
+                            <constraint firstAttribute="trailing" secondItem="EK7-1p-8fk" secondAttribute="trailing" id="reT-PC-dlC"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="gYf-A9-hnb" firstAttribute="bottom" secondItem="Zs0-VZ-bzd" secondAttribute="bottom" id="1fk-S7-jp2"/>
@@ -161,12 +192,15 @@
                     <constraint firstItem="IPw-En-Umz" firstAttribute="centerY" secondItem="Zs0-VZ-bzd" secondAttribute="centerY" id="OSo-6H-Kgc"/>
                     <constraint firstItem="3as-4n-Xph" firstAttribute="top" secondItem="Zs0-VZ-bzd" secondAttribute="top" id="WUx-1z-aQr"/>
                     <constraint firstAttribute="trailing" secondItem="Iel-UA-1O7" secondAttribute="trailing" id="Y0b-s7-Eak"/>
+                    <constraint firstItem="cd0-K0-jn8" firstAttribute="leading" secondItem="UXb-FI-etC" secondAttribute="leading" id="etx-Fj-MJM"/>
                     <constraint firstItem="IPw-En-Umz" firstAttribute="leading" secondItem="3as-4n-Xph" secondAttribute="trailing" constant="10" id="kMz-75-nqx"/>
                     <constraint firstAttribute="bottom" secondItem="Iel-UA-1O7" secondAttribute="bottom" id="qTR-Mw-Dv2"/>
                     <constraint firstItem="Zs0-VZ-bzd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="reo-aL-xTO"/>
+                    <constraint firstItem="Iel-UA-1O7" firstAttribute="top" secondItem="cd0-K0-jn8" secondAttribute="bottom" constant="10" id="svS-B1-OgO"/>
                     <constraint firstItem="UXb-FI-etC" firstAttribute="trailing" secondItem="IPw-En-Umz" secondAttribute="trailing" id="t3D-oI-sh5"/>
                     <constraint firstItem="gYf-A9-hnb" firstAttribute="leading" secondItem="3as-4n-Xph" secondAttribute="leading" id="uXg-Ar-jJR"/>
                     <constraint firstItem="Iel-UA-1O7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vyP-GW-EMM"/>
+                    <constraint firstItem="cd0-K0-jn8" firstAttribute="trailing" secondItem="UXb-FI-etC" secondAttribute="trailing" id="wDl-aP-uYK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -178,8 +212,10 @@
                 <outlet property="nameLabel" destination="3as-4n-Xph" id="IGG-AK-yfW"/>
                 <outlet property="profileImageView" destination="Zs0-VZ-bzd" id="Atv-AI-0fo"/>
                 <outlet property="repostBtn" destination="oCw-Pq-ci8" id="e3w-pq-OK9"/>
+                <outlet property="topcmdLabel" destination="EK7-1p-8fk" id="i72-sl-8I2"/>
+                <outlet property="topcmdView" destination="cd0-K0-jn8" id="skr-Dp-1lL"/>
             </connections>
-            <point key="canvasLocation" x="360" y="433"/>
+            <point key="canvasLocation" x="360" y="527"/>
         </tableViewCell>
     </objects>
     <resources>

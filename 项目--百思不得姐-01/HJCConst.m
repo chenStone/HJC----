@@ -25,3 +25,12 @@ CGFloat const HJCTopicCellPictureMaxH = 1000;
 /** 精华cell图片的最大高度超过1000后的图片固定高度 */
 CGFloat const HJCTopicCellPictureFixedH = 250;
 
+/** HJCUser模型中的性别属性 */
+NSString * const HJCUserSexMale = @"m";
+NSString * const HJCuserSexFemale = @"f";
+
+/** 精华cell中最热评论的标题高度 */
+CGFloat const HJCTopicCellTopcmdTitleLabelH = 21;
+
+
+

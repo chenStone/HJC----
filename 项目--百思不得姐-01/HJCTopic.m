@@ -9,9 +9,13 @@
 #import "HJCTopic.h"
 #import "NSDate+Extension.h"
 #import "HJCConst.h"
+#import "HJCComment.h"
+#import "HJCUser.h"
 
 //#import <MJExtension.h>
 
+
+#define HJCScreenW [UIScreen mainScreen].bounds.size.width
 @implementation HJCTopic {
     CGFloat _topicCellHeight;
 }
@@ -22,6 +26,10 @@
              @"large_image" : @"image1",
              @"normal_image" : @"image2"
              };
+}
+
++ (NSDictionary *)mj_objectClassInArray {
+    return @{@"top_cmt" : @"HJCComment"};
 }
 
 - (NSString *)create_time {
@@ -57,7 +65,7 @@
     
     if (!_topicCellHeight) {
         // 文字的最大尺寸
-        CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 2 * HJCTopicCellMargin, MAXFLOAT);
+        CGSize maxSize = CGSizeMake(HJCScreenW - 2 * HJCTopicCellMargin, MAXFLOAT);
         // 计算文字的高度
         CGFloat textH = [self.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
         // cell的高度
@@ -86,6 +94,18 @@
             _videoViewFrame = CGRectMake(videoX, videoY, videoW, videoH);
             _topicCellHeight += videoH + HJCTopicCellMargin;
         }
+        
+        HJCComment *topcmt = [self.top_cmt firstObject];
+        if (topcmt) {
+            NSString *content = [NSString stringWithFormat:@"%@:%@",topcmt.user.username, topcmt.content];
+            CGSize contentMaxSize = CGSizeMake(HJCScreenW - 2 * HJCTopicCellMargin, MAXFLOAT);
+            CGFloat contentH = [content boundingRectWithSize:contentMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+            
+            
+            
+            _topicCellHeight += HJCTopicCellMargin + contentH + HJCTopicCellTopcmdTitleLabelH;
+        }
+        
         _topicCellHeight += HJCTopicCellBottomBarH + HJCTopicCellMargin;
     }
     return _topicCellHeight;

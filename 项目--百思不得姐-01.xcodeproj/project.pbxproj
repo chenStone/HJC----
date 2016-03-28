@@ -29,6 +29,8 @@
 		E06830111CA7F126008093FC /* HJCTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E06830101CA7F126008093FC /* HJCTopicVideoView.m */; };
 		E06830131CA7F143008093FC /* HJCTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E06830121CA7F143008093FC /* HJCTopicVideoView.xib */; };
 		E06830161CA818A2008093FC /* HJCEssenceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E06830151CA818A2008093FC /* HJCEssenceButton.m */; };
+		E06830191CA823F6008093FC /* HJCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E06830181CA823F6008093FC /* HJCUser.m */; };
+		E068301C1CA82489008093FC /* HJCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E068301B1CA82489008093FC /* HJCComment.m */; };
 		E0ED7E701CA2ABBC009D0803 /* HJCTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ED7E6F1CA2ABBC009D0803 /* HJCTopicViewController.m */; };
 		E0ED7E741CA2D072009D0803 /* HJCConst.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ED7E731CA2D072009D0803 /* HJCConst.m */; };
 		E0ED9C841C9C088300818BA2 /* HJCRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0ED9C821C9C088300818BA2 /* HJCRecommendController.m */; };
@@ -119,6 +121,10 @@
 		E06830121CA7F143008093FC /* HJCTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJCTopicVideoView.xib; sourceTree = "<group>"; };
 		E06830141CA818A2008093FC /* HJCEssenceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCEssenceButton.h; sourceTree = "<group>"; };
 		E06830151CA818A2008093FC /* HJCEssenceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCEssenceButton.m; sourceTree = "<group>"; };
+		E06830171CA823F6008093FC /* HJCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCUser.h; sourceTree = "<group>"; };
+		E06830181CA823F6008093FC /* HJCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCUser.m; sourceTree = "<group>"; };
+		E068301A1CA82489008093FC /* HJCComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCComment.h; sourceTree = "<group>"; };
+		E068301B1CA82489008093FC /* HJCComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCComment.m; sourceTree = "<group>"; };
 		E0ED7E6E1CA2ABBC009D0803 /* HJCTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCTopicViewController.h; sourceTree = "<group>"; };
 		E0ED7E6F1CA2ABBC009D0803 /* HJCTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCTopicViewController.m; sourceTree = "<group>"; };
 		E0ED7E721CA2D049009D0803 /* HJCConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HJCConst.h; sourceTree = "<group>"; };
@@ -567,6 +573,10 @@
 			children = (
 				E0F173AB1CA04C740060E237 /* HJCTopic.h */,
 				E0F173AC1CA04C740060E237 /* HJCTopic.m */,
+				E06830171CA823F6008093FC /* HJCUser.h */,
+				E06830181CA823F6008093FC /* HJCUser.m */,
+				E068301A1CA82489008093FC /* HJCComment.h */,
+				E068301B1CA82489008093FC /* HJCComment.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -791,6 +801,7 @@
 				E0ED9CAA1C9D8C6700818BA2 /* HJCRecommendTagsViewController.m in Sources */,
 				E0241ABF1C9BA08700E7F60A /* UIView+Extension.m in Sources */,
 				E0ED9C9D1C9C4BAC00818BA2 /* HJCRecommendCategoryCell.m in Sources */,
+				E068301C1CA82489008093FC /* HJCComment.m in Sources */,
 				E0EDAF551C9AF71900E391E2 /* HJCTabBarController.m in Sources */,
 				E0F173AD1CA04C740060E237 /* HJCTopic.m in Sources */,
 				E0ED9C841C9C088300818BA2 /* HJCRecommendController.m in Sources */,
@@ -801,6 +812,7 @@
 				E06830111CA7F126008093FC /* HJCTopicVideoView.m in Sources */,
 				E0ED9C881C9C113400818BA2 /* HJCHttpTool.m in Sources */,
 				E0ED7E741CA2D072009D0803 /* HJCConst.m in Sources */,
+				E06830191CA823F6008093FC /* HJCUser.m in Sources */,
 				E0F098CB1C9F4E0500E5C02A /* HJCTextField.m in Sources */,
 				E0EDAF221C9ADC2700E391E2 /* AppDelegate.m in Sources */,
 				E0EDAF1F1C9ADC2700E391E2 /* main.m in Sources */,
