@@ -35,6 +35,7 @@
         [returnBtn setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
         [returnBtn setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
         [returnBtn setTitle:@"返回" forState:UIControlStateNormal];
+        returnBtn.titleLabel.font = [UIFont systemFontOfSize:14];
         [returnBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [returnBtn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
         [returnBtn addTarget:self action:@selector(pop) forControlEvents:UIControlEventTouchUpInside];

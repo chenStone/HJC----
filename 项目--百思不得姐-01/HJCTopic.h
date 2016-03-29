@@ -10,6 +10,8 @@
 #import "HJCConst.h"
 
 @interface HJCTopic : NSObject
+
+@property (nonatomic, copy) NSString *ID;
 /** 名称 */
 @property (nonatomic, copy) NSString *name;
 /** 头像 */

@@ -13,5 +13,8 @@
 
 @property (nonatomic, strong) HJCTopic *topic;
 
+/**更多按钮 */
+@property (weak, nonatomic) IBOutlet UIButton *moreBtn;
 
++ (instancetype)cell;
 @end

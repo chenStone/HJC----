@@ -11,6 +11,7 @@
 #import "HJCTopicCell.h"
 #import "UIView+Extension.h"
 #import "HJCConst.h"
+#import "HJCCommentViewController.h"
 
 #import <AFNetworking.h>
 #import <MJExtension.h>
@@ -173,6 +174,14 @@ static NSString *const HJCTopicID = @"topic";
     HJCTopic *topic = self.topics[indexPath.row];
     
     return topic.topicCellHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    HJCCommentViewController *commentVc = [[HJCCommentViewController alloc] init];
+    commentVc.topic = self.topics[indexPath.row];
+    [self.navigationController pushViewController:commentVc animated:YES];
+    
 }
 
 @end

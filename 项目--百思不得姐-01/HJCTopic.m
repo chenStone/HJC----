@@ -24,7 +24,9 @@
     return @{
              @"small_image" : @"image0",
              @"large_image" : @"image1",
-             @"normal_image" : @"image2"
+             @"normal_image" : @"image2",
+             @"ID" : @"id"
+             
              };
 }
 
@@ -101,8 +103,6 @@
             CGSize contentMaxSize = CGSizeMake(HJCScreenW - 2 * HJCTopicCellMargin, MAXFLOAT);
             CGFloat contentH = [content boundingRectWithSize:contentMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
             
-            
-            
             _topicCellHeight += HJCTopicCellMargin + contentH + HJCTopicCellTopcmdTitleLabelH;
         }
         
@@ -111,7 +111,5 @@
     return _topicCellHeight;
     
 }
-
-
 
 @end

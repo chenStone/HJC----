@@ -51,6 +51,9 @@
 
 @implementation HJCTopicCell
 
++ (instancetype)cell {
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
+}
 
 #pragma mark - 懒加载
 - (HJCTopicPictureView *)pictureView {
@@ -154,9 +157,30 @@
 }
     
 - (void)setFrame:(CGRect)frame {
-    frame.size.height -=  HJCTopicCellMargin;
+    frame.size.height = self.topic.topicCellHeight -  HJCTopicCellMargin;
     [super setFrame:frame];
     
 }
+
+#pragma mark - 点击更多按钮
+- (IBAction)more {
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertVc addAction:action];
+    [alertVc addAction:action1];
+    [alertVc addAction:action2];
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alertVc animated:YES completion:nil];
+}
+
 
 @end
