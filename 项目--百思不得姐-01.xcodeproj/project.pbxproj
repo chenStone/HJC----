@@ -55,6 +55,8 @@
 		E0EDAF431C9ADC2700E391E2 /* __________01UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E0EDAF421C9ADC2700E391E2 /* __________01UITests.m */; };
 		E0EDAF551C9AF71900E391E2 /* HJCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0EDAF541C9AF71900E391E2 /* HJCTabBarController.m */; };
 		E0EE41581CAA154300BBC1AB /* HJCCommentHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0EE41571CAA154300BBC1AB /* HJCCommentHeaderView.m */; };
+		E0EE415C1CABC2EA00BBC1AB /* HJCCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E0EE415A1CABC2EA00BBC1AB /* HJCCommentCell.m */; };
+		E0EE415D1CABC2EA00BBC1AB /* HJCCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0EE415B1CABC2EA00BBC1AB /* HJCCommentCell.xib */; };
 		E0F098C21C9EAEA800E5C02A /* HJCLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F098C01C9EAEA800E5C02A /* HJCLoginRegisterViewController.m */; };
 		E0F098C31C9EAEA800E5C02A /* HJCLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F098C11C9EAEA800E5C02A /* HJCLoginRegisterViewController.xib */; };
 		E0F098C81C9ECA8C00E5C02A /* HJCVerticalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F098C71C9ECA8C00E5C02A /* HJCVerticalButton.m */; };
@@ -173,6 +175,9 @@
 		E0EDAF541C9AF71900E391E2 /* HJCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCTabBarController.m; sourceTree = "<group>"; };
 		E0EE41561CAA154300BBC1AB /* HJCCommentHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCCommentHeaderView.h; sourceTree = "<group>"; };
 		E0EE41571CAA154300BBC1AB /* HJCCommentHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCCommentHeaderView.m; sourceTree = "<group>"; };
+		E0EE41591CABC2EA00BBC1AB /* HJCCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCCommentCell.h; sourceTree = "<group>"; };
+		E0EE415A1CABC2EA00BBC1AB /* HJCCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCCommentCell.m; sourceTree = "<group>"; };
+		E0EE415B1CABC2EA00BBC1AB /* HJCCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJCCommentCell.xib; sourceTree = "<group>"; };
 		E0F098BF1C9EAEA800E5C02A /* HJCLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCLoginRegisterViewController.h; sourceTree = "<group>"; };
 		E0F098C01C9EAEA800E5C02A /* HJCLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCLoginRegisterViewController.m; sourceTree = "<group>"; };
 		E0F098C11C9EAEA800E5C02A /* HJCLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJCLoginRegisterViewController.xib; sourceTree = "<group>"; };
@@ -581,6 +586,9 @@
 				E0ED9CB61C9D9C9C00818BA2 /* HJCRecommendTagCell.xib */,
 				E0EE41561CAA154300BBC1AB /* HJCCommentHeaderView.h */,
 				E0EE41571CAA154300BBC1AB /* HJCCommentHeaderView.m */,
+				E0EE41591CABC2EA00BBC1AB /* HJCCommentCell.h */,
+				E0EE415A1CABC2EA00BBC1AB /* HJCCommentCell.m */,
+				E0EE415B1CABC2EA00BBC1AB /* HJCCommentCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -704,6 +712,7 @@
 				E0ED9C9E1C9C4BAC00818BA2 /* HJCRecommendCategoryCell.xib in Resources */,
 				E0F5DC3D1CA40DA400A5FAD7 /* HJCTopicPictureView.xib in Resources */,
 				E0ED9CA31C9CC8F900818BA2 /* HJCRecommendUserCell.xib in Resources */,
+				E0EE415D1CABC2EA00BBC1AB /* HJCCommentCell.xib in Resources */,
 				E06830131CA7F143008093FC /* HJCTopicVideoView.xib in Resources */,
 				E068300E1CA7DE15008093FC /* HJCTopicVoiceView.xib in Resources */,
 				E0F098C31C9EAEA800E5C02A /* HJCLoginRegisterViewController.xib in Resources */,
@@ -800,6 +809,7 @@
 				E0EDAF1F1C9ADC2700E391E2 /* main.m in Sources */,
 				E0241AC51C9BBEC500E7F60A /* UIBarButtonItem+Extension.m in Sources */,
 				E0F098C81C9ECA8C00E5C02A /* HJCVerticalButton.m in Sources */,
+				E0EE415C1CABC2EA00BBC1AB /* HJCCommentCell.m in Sources */,
 				E0241AAA1C9B881700E7F60A /* HJCEssenceViewController.m in Sources */,
 				E0241AC21C9BA51000E7F60A /* HJCNavigationController.m in Sources */,
 				E0F254661CA1879B00173A19 /* NSDate+Extension.m in Sources */,

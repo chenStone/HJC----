@@ -17,6 +17,8 @@
 @property (nonatomic, copy) NSString *content;
 /** 音频文件的时长 */
 @property (nonatomic, assign) NSInteger voicetime;
+/** 音频文件的路径 */
+@property (nonatomic, copy) NSString *voiceuri;
 /** 被点赞的数量 */
 @property (nonatomic, assign) NSInteger like_count;
 

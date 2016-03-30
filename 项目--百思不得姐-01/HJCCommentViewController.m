@@ -13,10 +13,13 @@
 #import "HJCConst.h"
 #import "HJCComment.h"
 #import "HJCCommentHeaderView.h"
+#import "HJCCommentCell.h"
 
 #import <MJRefresh.h>
 #import <MJExtension.h>
 #import <AFNetworking.h>
+
+NSString *const HJCCommentID = @"comment";
 
 @interface HJCCommentViewController () <UITableViewDelegate, UITableViewDataSource>
 /** 底部工具栏的底部约束 */
@@ -114,6 +117,7 @@
     
     self.title = @"评论";
     
+    
     UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [rightBtn setImage:[UIImage imageNamed:@"comment_nav_item_share_icon"] forState:UIControlStateNormal];
     [rightBtn setImage:[UIImage imageNamed:@"comment_nav_item_share_icon_click"] forState:UIControlStateHighlighted];
@@ -122,6 +126,12 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     // 监听键盘
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    // 注册表格
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([HJCCommentCell class]) bundle:nil] forCellReuseIdentifier:HJCCommentID];
+    
+    self.tableView.estimatedRowHeight = 44;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 
 }
 
@@ -185,13 +195,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *ID = @"comment";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
+    HJCCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
     HJCComment *comment = [self commentsInSection:indexPath.section][indexPath.row];
-    cell.textLabel.text = comment.content;
+    cell.comment = comment;
     
     return cell;
 }
