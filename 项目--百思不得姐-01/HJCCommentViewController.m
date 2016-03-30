@@ -28,6 +28,9 @@
 /** 最新评论 */
 @property (nonatomic, strong) NSMutableArray *lastComments;
 
+/** 保存topic的tmd_cmd */
+@property (nonatomic, strong) NSArray *saved_top_cmd;
+
 @end
 
 @implementation HJCCommentViewController
@@ -87,6 +90,11 @@
 - (void)setupHeader {
     UIView *header = [[UIView alloc] init];
     HJCTopicCell *cell = [HJCTopicCell cell];
+    if (self.topic.top_cmt) {
+        self.saved_top_cmd = self.topic.top_cmt;
+       self.topic.top_cmt = nil;
+        [self.topic setValue:@0 forKey:@"topicCellHeight"];
+    }
     cell.topic = self.topic;
     cell.moreBtn.hidden = YES;
     cell.frame = CGRectMake(0, HJCTopicCellMargin, [UIScreen mainScreen].bounds.size.width, self.topic.topicCellHeight);
@@ -129,6 +137,10 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    if (self.saved_top_cmd) {
+        self.topic.top_cmt = self.saved_top_cmd;
+        [self.topic setValue:@0 forKeyPath:@"topicCellHeight"];
+    }
 }
 
 #pragma mark - <UITableViewDataSource>方法
@@ -142,14 +154,6 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    UILabel *lable = [[UILabel alloc] init];
-//    if (section == 0) {
-//        lable.text = self.hotComments.count? @"热门评论":@"最新评论";
-//    }
-//    lable.text = @" 最热评论";
-//    lable.textColor = [UIColor colorWithRed:67/255.0 green:67/255.0 blue:67/255.0 alpha:1.0];
-//    lable.font = [UIFont systemFontOfSize:13];
-//    return lable;
     
     HJCCommentHeaderView *header = [HJCCommentHeaderView headerViewWithTableView:tableView];
     if (section == 0) {

@@ -22,8 +22,6 @@
     if (header == nil) {
         header = [[HJCCommentHeaderView alloc] initWithReuseIdentifier:ID];
     }
-    
-    
     return header;
 }
 

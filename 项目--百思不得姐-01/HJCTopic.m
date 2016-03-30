@@ -26,7 +26,6 @@
              @"large_image" : @"image1",
              @"normal_image" : @"image2",
              @"ID" : @"id"
-             
              };
 }
 
