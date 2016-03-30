@@ -25,13 +25,14 @@
              @"small_image" : @"image0",
              @"large_image" : @"image1",
              @"normal_image" : @"image2",
-             @"ID" : @"id"
+             @"ID" : @"id",
+             @"top_cmt" : @"top_cmt[0]"
              };
 }
 
-+ (NSDictionary *)mj_objectClassInArray {
-    return @{@"top_cmt" : @"HJCComment"};
-}
+//+ (NSDictionary *)mj_objectClassInArray {
+//    return @{@"top_cmt" : @"HJCComment"};
+//}
 
 - (NSString *)create_time {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
@@ -96,13 +97,12 @@
             _topicCellHeight += videoH + HJCTopicCellMargin;
         }
         
-        HJCComment *topcmt = [self.top_cmt firstObject];
-        if (topcmt) {
-            NSString *content = [NSString stringWithFormat:@"%@:%@",topcmt.user.username, topcmt.content];
+        if (self.top_cmt) {
+            NSString *content = [NSString stringWithFormat:@"%@:%@",self.top_cmt.user.username, self.top_cmt.content];
             CGSize contentMaxSize = CGSizeMake(HJCScreenW - 2 * HJCTopicCellMargin, MAXFLOAT);
             CGFloat contentH = [content boundingRectWithSize:contentMaxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
             
-            _topicCellHeight += HJCTopicCellMargin + contentH + HJCTopicCellTopcmdTitleLabelH;
+            _topicCellHeight += HJCTopicCellMargin + contentH + HJCTopicCellTopcmtTitleLabelH;
         }
         
         _topicCellHeight += HJCTopicCellBottomBarH + HJCTopicCellMargin;

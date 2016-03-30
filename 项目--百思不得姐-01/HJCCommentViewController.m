@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSMutableArray *lastComments;
 
 /** 保存topic的tmd_cmd */
-@property (nonatomic, strong) NSArray *saved_top_cmd;
+@property (nonatomic, strong) HJCComment *saved_top_cmt;
 
 @end
 
@@ -91,7 +91,7 @@
     UIView *header = [[UIView alloc] init];
     HJCTopicCell *cell = [HJCTopicCell cell];
     if (self.topic.top_cmt) {
-        self.saved_top_cmd = self.topic.top_cmt;
+        self.saved_top_cmt = self.topic.top_cmt;
        self.topic.top_cmt = nil;
         [self.topic setValue:@0 forKey:@"topicCellHeight"];
     }
@@ -137,8 +137,8 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    if (self.saved_top_cmd) {
-        self.topic.top_cmt = self.saved_top_cmd;
+    if (self.saved_top_cmt) {
+        self.topic.top_cmt = self.saved_top_cmt;
         [self.topic setValue:@0 forKeyPath:@"topicCellHeight"];
     }
 }
@@ -158,8 +158,9 @@
     HJCCommentHeaderView *header = [HJCCommentHeaderView headerViewWithTableView:tableView];
     if (section == 0) {
         header.title = self.hotComments.count? @"热门评论":@"最新评论";
+    } else {
+        header.title = @"最新评论";
     }
-    header.title = @"最新评论";
     return header;
     
 }

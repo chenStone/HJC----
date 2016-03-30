@@ -30,7 +30,7 @@ NSString * const HJCUserSexMale = @"m";
 NSString * const HJCuserSexFemale = @"f";
 
 /** 精华cell中最热评论的标题高度 */
-CGFloat const HJCTopicCellTopcmdTitleLabelH = 21;
+CGFloat const HJCTopicCellTopcmtTitleLabelH = 21;
 
 
 

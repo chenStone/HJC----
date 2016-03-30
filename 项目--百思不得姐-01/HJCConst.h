@@ -28,4 +28,4 @@ UIKIT_EXTERN CGFloat const HJCTopicCellPictureFixedH;
 UIKIT_EXTERN NSString * const HJCUserSexMale;
 UIKIT_EXTERN NSString * const HJCuserSexFemale;
 
-UIKIT_EXTERN CGFloat const HJCTopicCellTopcmdTitleLabelH;
+UIKIT_EXTERN CGFloat const HJCTopicCellTopcmtTitleLabelH;

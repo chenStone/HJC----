@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "HJCConst.h"
 
+@class HJCComment;
 @interface HJCTopic : NSObject
-
 @property (nonatomic, copy) NSString *ID;
 /** 名称 */
 @property (nonatomic, copy) NSString *name;
@@ -49,7 +49,7 @@
 /** 视频时长 */
 @property (nonatomic, copy) NSString *videotime;
 /** 最热评论（存放着HJCComment模型） */
-@property (nonatomic, copy) NSArray *top_cmt;
+@property (nonatomic, strong) HJCComment *top_cmt;
 
 
 

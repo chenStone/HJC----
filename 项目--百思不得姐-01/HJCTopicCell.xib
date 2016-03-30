@@ -216,8 +216,8 @@
                 <outlet property="nameLabel" destination="3as-4n-Xph" id="IGG-AK-yfW"/>
                 <outlet property="profileImageView" destination="Zs0-VZ-bzd" id="Atv-AI-0fo"/>
                 <outlet property="repostBtn" destination="oCw-Pq-ci8" id="e3w-pq-OK9"/>
-                <outlet property="topcmdLabel" destination="EK7-1p-8fk" id="i72-sl-8I2"/>
-                <outlet property="topcmdView" destination="cd0-K0-jn8" id="skr-Dp-1lL"/>
+                <outlet property="topcmtLabel" destination="EK7-1p-8fk" id="hgD-zu-YsB"/>
+                <outlet property="topcmtView" destination="cd0-K0-jn8" id="hQu-LK-PhI"/>
             </connections>
             <point key="canvasLocation" x="381.5" y="527"/>
         </tableViewCell>

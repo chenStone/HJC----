@@ -44,9 +44,9 @@
 /** 视屏View */
 @property (nonatomic, weak) HJCTopicVideoView *videoView;
 /** 最热评论内容 */
-@property (weak, nonatomic) IBOutlet UILabel *topcmdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *topcmtLabel;
 /** 最热评论整体 */
-@property (weak, nonatomic) IBOutlet UIView *topcmdView;
+@property (weak, nonatomic) IBOutlet UIView *topcmtView;
 @end
 
 @implementation HJCTopicCell
@@ -134,12 +134,11 @@
     }
     
     //  最热评论
-    HJCComment *topcmd = [topic.top_cmt firstObject];
-    if (topcmd) {
-        self.topcmdLabel.text = [NSString stringWithFormat:@"%@:%@",topcmd.user.username, topcmd.content];
-        self.topcmdView.hidden = NO;
+    if (topic.top_cmt) {
+        self.topcmtLabel.text = [NSString stringWithFormat:@"%@:%@",topic.top_cmt.user.username, topic.top_cmt.content];
+        self.topcmtView.hidden = NO;
     } else {
-        self.topcmdView.hidden = YES;
+        self.topcmtView.hidden = YES;
     }
 }
 
