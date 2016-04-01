@@ -10,6 +10,7 @@
 #import "HJCComment.h"
 #import "HJCUser.h"
 #import "HJCConst.h"
+#import "UIImage+HJCExtension.h"
 
 #import <UIImageView+WebCache.h>
 
@@ -31,10 +32,20 @@
 
 @implementation HJCCommentCell
 
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender {
+    return NO;
+}
+
 - (void)setComment:(HJCComment *)comment {
     _comment = comment;
     
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:comment.user.profile_image]];
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:comment.user.profile_image] placeholderImage:[[UIImage imageNamed: @"defaultUserIcon"] circleImage] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.profileImageView.image = [image circleImage];
+    }];
     
     self.sexImageView.image = [comment.user.sex isEqualToString: HJCUserSexMale]?[UIImage imageNamed:@"Profile_manIcon"] : [UIImage imageNamed:@"Profile_womanIcon"] ;
     
@@ -50,8 +61,6 @@
     } else {
         self.voiceButton.hidden = YES;
     }
-    
-    
 }
 
 @end

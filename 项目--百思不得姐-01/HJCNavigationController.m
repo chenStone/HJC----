@@ -26,7 +26,6 @@
 #pragma mark - 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -51,7 +50,5 @@
 - (void)pop {
     [self popViewControllerAnimated:YES];
 }
-
-
 
 @end

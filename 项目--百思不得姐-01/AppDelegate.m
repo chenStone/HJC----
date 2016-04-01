@@ -11,7 +11,7 @@
 #import "HJCPushGuideView.h"
 #import "UIView+Extension.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <UITabBarControllerDelegate>
 
 @end
 
@@ -23,7 +23,11 @@
     // 创建窗口
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     // 设置窗口的根控制器
-    self.window.rootViewController = [[HJCTabBarController alloc] init];
+    HJCTabBarController *tabBarVc = [[HJCTabBarController alloc] init];
+    
+    tabBarVc.delegate = self;
+    
+    self.window.rootViewController = tabBarVc;
     
     //显示窗口
     [self.window makeKeyAndVisible];
@@ -32,6 +36,11 @@
     [HJCPushGuideView show];
     
     return YES;
+}
+
+#pragma mark - <UITabBarControllerDelegate>的代理方法
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    NSLog(@"%@",viewController);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -31,6 +31,7 @@
     _recommendTag = recommendTag;
     
     [self.imageListImageView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed: @"defaultUserIcon"]];
+    
     self.themNameLabel.text = recommendTag.theme_name;
     
     NSString *subNumber = nil;

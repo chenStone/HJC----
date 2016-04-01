@@ -17,6 +17,7 @@
 		E0241AC21C9BA51000E7F60A /* HJCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0241AC11C9BA51000E7F60A /* HJCNavigationController.m */; };
 		E0241AC51C9BBEC500E7F60A /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E0241AC41C9BBEC500E7F60A /* UIBarButtonItem+Extension.m */; };
 		E0241AC81C9BF0BC00E7F60A /* HJCFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0241AC71C9BF0BC00E7F60A /* HJCFriendTrendsViewController.xib */; };
+		E02488E21CAE8FBD00511A1A /* UIImage+HJCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E02488E11CAE8FBD00511A1A /* UIImage+HJCExtension.m */; };
 		E032340B1CA128D500A7B8DF /* HJCTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E03234091CA128D500A7B8DF /* HJCTopicCell.m */; };
 		E032340C1CA128D500A7B8DF /* HJCTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E032340A1CA128D500A7B8DF /* HJCTopicCell.xib */; };
 		E03455721CA4DC30001C3066 /* HJCShowPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E03455701CA4DC30001C3066 /* HJCShowPictureViewController.m */; };
@@ -107,6 +108,8 @@
 		E0241AC31C9BBEC500E7F60A /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		E0241AC41C9BBEC500E7F60A /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		E0241AC71C9BF0BC00E7F60A /* HJCFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJCFriendTrendsViewController.xib; sourceTree = "<group>"; };
+		E02488E01CAE8FBD00511A1A /* UIImage+HJCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+HJCExtension.h"; sourceTree = "<group>"; };
+		E02488E11CAE8FBD00511A1A /* UIImage+HJCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+HJCExtension.m"; sourceTree = "<group>"; };
 		E03234081CA128D500A7B8DF /* HJCTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCTopicCell.h; sourceTree = "<group>"; };
 		E03234091CA128D500A7B8DF /* HJCTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCTopicCell.m; sourceTree = "<group>"; };
 		E032340A1CA128D500A7B8DF /* HJCTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJCTopicCell.xib; sourceTree = "<group>"; };
@@ -380,6 +383,8 @@
 				E0241AC41C9BBEC500E7F60A /* UIBarButtonItem+Extension.m */,
 				E0F254641CA1879B00173A19 /* NSDate+Extension.h */,
 				E0F254651CA1879B00173A19 /* NSDate+Extension.m */,
+				E02488E01CAE8FBD00511A1A /* UIImage+HJCExtension.h */,
+				E02488E11CAE8FBD00511A1A /* UIImage+HJCExtension.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -794,6 +799,7 @@
 				E0ED9C9D1C9C4BAC00818BA2 /* HJCRecommendCategoryCell.m in Sources */,
 				E068301C1CA82489008093FC /* HJCComment.m in Sources */,
 				E0EDAF551C9AF71900E391E2 /* HJCTabBarController.m in Sources */,
+				E02488E21CAE8FBD00511A1A /* UIImage+HJCExtension.m in Sources */,
 				E0F173AD1CA04C740060E237 /* HJCTopic.m in Sources */,
 				E0ED9C841C9C088300818BA2 /* HJCRecommendController.m in Sources */,
 				E0241AAE1C9B884700E7F60A /* HJCNewViewController.m in Sources */,

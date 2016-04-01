@@ -16,6 +16,7 @@
 #import "HJCTopicVideoView.h"
 #import "HJCComment.h"
 #import "HJCUser.h"
+#import "UIImage+HJCExtension.h"
 
 #import <UIImageView+WebCache.h>
 
@@ -93,7 +94,10 @@
 - (void)setTopic:(HJCTopic *)topic {
     _topic = topic;
     
-    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[UIImage imageNamed: @"defaultUserIcon"]];
+    [self.profileImageView sd_setImageWithURL:[NSURL URLWithString:topic.profile_image] placeholderImage:[[UIImage imageNamed: @"defaultUserIcon"] circleImage] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        self.profileImageView.image = [image circleImage];
+    }];
+    
     self.nameLabel.text = topic.name;
     
     // 时间

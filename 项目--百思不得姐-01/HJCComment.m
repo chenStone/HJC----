@@ -7,7 +7,12 @@
 //
 
 #import "HJCComment.h"
+#import <MJExtension.h>
 
 @implementation HJCComment
+
++ (NSDictionary *)mj_replacedKeyFromPropertyName {
+    return @{@"ID" : @"id"};
+}
 
 @end

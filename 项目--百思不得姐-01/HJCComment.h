@@ -10,7 +10,8 @@
 
 @class HJCUser;
 @interface HJCComment : NSObject
-
+/** id */
+@property (nonatomic, copy) NSString *ID;
 /** 用户 */
 @property (nonatomic, strong) HJCUser *user;
 /** 评论的文字内容 */

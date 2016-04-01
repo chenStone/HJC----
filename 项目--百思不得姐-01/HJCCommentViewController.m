@@ -30,13 +30,23 @@ NSString *const HJCCommentID = @"comment";
 @property (nonatomic, strong) NSArray *hotComments;
 /** 最新评论 */
 @property (nonatomic, strong) NSMutableArray *lastComments;
-
 /** 保存topic的tmd_cmd */
 @property (nonatomic, strong) HJCComment *saved_top_cmt;
+/** 保存当前页 */
+@property (nonatomic, assign) NSInteger page;
+/** AFHTTPSessionManager */
+@property (nonatomic, strong) AFHTTPSessionManager *manager;
 
 @end
 
 @implementation HJCCommentViewController
+
+- (AFHTTPSessionManager *)manager {
+    if (_manager == nil) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
 
 #pragma mark - 初始化
 - (void)viewDidLoad {
@@ -62,7 +72,52 @@ NSString *const HJCCommentID = @"comment";
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewComments)];
     self.tableView.mj_header.automaticallyChangeAlpha = YES;
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
     
+}
+
+/**
+ *  读取更多评论数据
+ */
+- (void)loadMoreComments {
+    
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    [self.tableView.mj_footer beginRefreshing];
+    
+    NSInteger page = self.page++;
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"a"] = @"dataList";
+    parameters[@"c"] = @"comment";
+    parameters[@"data_id"] = self.topic.ID;
+    HJCComment *lastComent = [self.lastComments lastObject];
+    parameters[@"lastcid"] = lastComent.ID;
+    parameters[@"page"] = @(page);
+    
+    [self.manager POST:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [self.tableView.mj_footer endRefreshing];
+        
+        self.page = page;
+        
+        NSArray *newArray = [HJCComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
+        [self.lastComments addObjectsFromArray:newArray];
+        
+        [self.tableView reloadData];
+        
+        // 控制footer的状态
+        NSInteger total = [responseObject[@"total"] integerValue];
+        if (self.lastComments.count >= total) { // 全部加载完毕
+            self.tableView.mj_footer.hidden = YES;
+        } else {
+            // 结束刷新状态
+            [self.tableView.mj_footer endRefreshing];
+        }
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self.tableView.mj_footer endRefreshing];
+    }];
 }
 
 /** 
@@ -70,14 +125,18 @@ NSString *const HJCCommentID = @"comment";
  */
 - (void)loadNewComments {
     
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"dataList";
     parameters[@"c"] = @"comment";
     parameters[@"data_id"] = self.topic.ID;
     parameters[@"hot"] = @(1);
     
-    [[AFHTTPSessionManager manager] POST:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [self.manager POST:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [self.tableView.mj_header endRefreshing];
+        
+        self.page = 1;
         
         self.hotComments = [HJCComment mj_objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         self.lastComments = [HJCComment mj_objectArrayWithKeyValuesArray:responseObject[@"data"]];
@@ -132,6 +191,8 @@ NSString *const HJCCommentID = @"comment";
     
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, HJCTopicCellBottomBarH, 0);
 
 }
 
@@ -151,6 +212,8 @@ NSString *const HJCCommentID = @"comment";
         self.topic.top_cmt = self.saved_top_cmt;
         [self.topic setValue:@0 forKeyPath:@"topicCellHeight"];
     }
+    
+    [self.manager invalidateSessionCancelingTasks:YES];
 }
 
 #pragma mark - <UITableViewDataSource>方法
@@ -206,6 +269,37 @@ NSString *const HJCCommentID = @"comment";
 #pragma mark - <UITableViewDelegate>方法
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
     [self.view endEditing:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    HJCCommentCell *cell = (HJCCommentCell *)[tableView cellForRowAtIndexPath:indexPath];
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    if ([menu isMenuVisible]) {
+        [menu setMenuVisible:NO animated:YES];
+        return;
+    }
+    // 成为第一响应者
+    [cell becomeFirstResponder];
+    [menu setTargetRect:CGRectMake(0, cell.height * 0.5, cell.width, cell.height * 0.5) inView:cell];
+    UIMenuItem *ding = [[UIMenuItem alloc] initWithTitle:@"顶" action:@selector(ding:)];
+    UIMenuItem *replay = [[UIMenuItem alloc] initWithTitle:@"回复" action:@selector(replay:)];
+    UIMenuItem *report = [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(report:)];
+    menu.menuItems = @[ding, replay, report];
+    [menu setMenuVisible:YES animated:YES];
+    
+}
+
+- (void)ding:(UIMenuController *)menu {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    NSLog(@"%s-----%@",__func__,[self commentsInSection:indexPath.section][indexPath.row]);
+}
+
+- (void)replay:(UIMenuController *)menu {
+    
+}
+
+- (void)report:(UIMenuController *)menu {
+    
 }
 
 @end
