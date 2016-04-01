@@ -10,6 +10,7 @@
 #import "HJCTabBarController.h"
 #import "HJCPushGuideView.h"
 #import "UIView+Extension.h"
+#import "HJCConst.h"
 
 @interface AppDelegate () <UITabBarControllerDelegate>
 
@@ -40,7 +41,8 @@
 
 #pragma mark - <UITabBarControllerDelegate>的代理方法
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-    NSLog(@"%@",viewController);
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:HJCTabBarDidSelectNotification object:nil userInfo:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

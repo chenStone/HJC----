@@ -29,3 +29,6 @@ UIKIT_EXTERN NSString * const HJCUserSexMale;
 UIKIT_EXTERN NSString * const HJCuserSexFemale;
 
 UIKIT_EXTERN CGFloat const HJCTopicCellTopcmtTitleLabelH;
+/** tabBar被选中的通知名字 */
+UIKIT_EXTERN NSString * const HJCTabBarDidSelectNotification;
+

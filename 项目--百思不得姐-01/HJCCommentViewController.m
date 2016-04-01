@@ -95,7 +95,12 @@ NSString *const HJCCommentID = @"comment";
     parameters[@"page"] = @(page);
     
     [self.manager POST:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        [self.tableView.mj_footer endRefreshing];
+        
+        
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            self.tableView.mj_footer.hidden = YES;
+            return;
+        }
         
         self.page = page;
         
@@ -134,6 +139,12 @@ NSString *const HJCCommentID = @"comment";
     parameters[@"hot"] = @(1);
     
     [self.manager POST:@"http://api.budejie.com/api/api_open.php" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (![responseObject isKindOfClass:[NSDictionary class]]) {
+            self.tableView.mj_footer.hidden = YES;
+            return;
+        }
+        
         [self.tableView.mj_header endRefreshing];
         
         self.page = 1;

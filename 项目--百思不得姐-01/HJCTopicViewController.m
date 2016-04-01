@@ -29,6 +29,8 @@
 // 请求参数
 @property (nonatomic, strong) NSDictionary *parameters;
 
+@property (nonatomic, assign) NSInteger lastSelectedIndex;
+
 @end
 
 @implementation HJCTopicViewController
@@ -67,6 +69,28 @@ static NSString *const HJCTopicID = @"topic";
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = [UIColor clearColor];
+    
+    // 监听通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tabBarSelect) name:HJCTabBarDidSelectNotification object:nil];
+    
+}
+
+- (void)tabBarSelect {
+    if ( self.lastSelectedIndex == self.tabBarController.selectedIndex && self.view.isShowingOnKeyWindow) {
+        [self.tableView.mj_header beginRefreshing];
+    }
+    
+    self.lastSelectedIndex = self.tabBarController.selectedIndex;
+    
+    
+    
+}
+
+/**
+ *  移除销毁通知
+ */
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 /**
