@@ -24,7 +24,7 @@
 
 - (void)setup {
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.font = [UIFont systemFontOfSize:12];
     [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self setBackgroundImage:[UIImage imageNamed:@"mainCellBackground"] forState:UIControlStateNormal];
 }

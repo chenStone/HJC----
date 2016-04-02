@@ -9,6 +9,8 @@
 #import "HJCPublishView.h"
 #import "UIView+Extension.h"
 #import "HJCVerticalButton.h"
+#import "HJCPostWordViewController.h"
+#import "HJCNavigationController.h"
 
 #import <POP.h>
 
@@ -137,6 +139,15 @@
 - (void)btnClick:(UIButton *)btn {
     [self cancelWithCompletionBlock:^{
         NSLog(@"%@",btn.titleLabel.text);
+        
+        if ([btn.titleLabel.text isEqualToString:@"发段子"]) {
+            HJCPostWordViewController *postwordVc = [[HJCPostWordViewController alloc] init];
+            
+            HJCNavigationController *nav = [[HJCNavigationController alloc] initWithRootViewController:postwordVc];
+            
+            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
+            
+        }
     }];
 }
 

@@ -22,6 +22,7 @@
 		E02488E91CAF440200511A1A /* HJCMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E02488E81CAF440200511A1A /* HJCMeFooterView.m */; };
 		E02488ED1CAF4E6700511A1A /* HJCSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = E02488EC1CAF4E6700511A1A /* HJCSquare.m */; };
 		E02488F01CAF5E2500511A1A /* HJCSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E02488EF1CAF5E2500511A1A /* HJCSquareButton.m */; };
+		E02488F31CAFCCFC00511A1A /* HJCPostWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02488F21CAFCCFC00511A1A /* HJCPostWordViewController.m */; };
 		E032340B1CA128D500A7B8DF /* HJCTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E03234091CA128D500A7B8DF /* HJCTopicCell.m */; };
 		E032340C1CA128D500A7B8DF /* HJCTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E032340A1CA128D500A7B8DF /* HJCTopicCell.xib */; };
 		E03455721CA4DC30001C3066 /* HJCShowPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E03455701CA4DC30001C3066 /* HJCShowPictureViewController.m */; };
@@ -122,6 +123,8 @@
 		E02488EC1CAF4E6700511A1A /* HJCSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCSquare.m; sourceTree = "<group>"; };
 		E02488EE1CAF5E2500511A1A /* HJCSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCSquareButton.h; sourceTree = "<group>"; };
 		E02488EF1CAF5E2500511A1A /* HJCSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCSquareButton.m; sourceTree = "<group>"; };
+		E02488F11CAFCCFC00511A1A /* HJCPostWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCPostWordViewController.h; sourceTree = "<group>"; };
+		E02488F21CAFCCFC00511A1A /* HJCPostWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCPostWordViewController.m; sourceTree = "<group>"; };
 		E03234081CA128D500A7B8DF /* HJCTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCTopicCell.h; sourceTree = "<group>"; };
 		E03234091CA128D500A7B8DF /* HJCTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCTopicCell.m; sourceTree = "<group>"; };
 		E032340A1CA128D500A7B8DF /* HJCTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJCTopicCell.xib; sourceTree = "<group>"; };
@@ -443,6 +446,8 @@
 				E034557B1CA66EF7001C3066 /* HJCPublishView.h */,
 				E034557C1CA66EF7001C3066 /* HJCPublishView.m */,
 				E034557D1CA66EF7001C3066 /* HJCPublishView.xib */,
+				E02488F11CAFCCFC00511A1A /* HJCPostWordViewController.h */,
+				E02488F21CAFCCFC00511A1A /* HJCPostWordViewController.m */,
 			);
 			name = Publish;
 			sourceTree = "<group>";
@@ -874,6 +879,7 @@
 				E0EE41581CAA154300BBC1AB /* HJCCommentHeaderView.m in Sources */,
 				E0ED9CA61C9CD0FE00818BA2 /* HJCRecommendUser.m in Sources */,
 				E0241ABB1C9B901F00E7F60A /* HJCTabBar.m in Sources */,
+				E02488F31CAFCCFC00511A1A /* HJCPostWordViewController.m in Sources */,
 				E034557E1CA66EF7001C3066 /* HJCPublishView.m in Sources */,
 				E0ED9CA21C9CC8F900818BA2 /* HJCRecommendUserCell.m in Sources */,
 			);

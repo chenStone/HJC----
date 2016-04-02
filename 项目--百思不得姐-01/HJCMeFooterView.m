@@ -33,9 +33,7 @@
             self.squares = [HJCSquare mj_objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
             // 创建方块
             [self creatSquare];
-            
-            NSLog(@"%lf",self.height);
-            
+
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
         }];
@@ -53,8 +51,9 @@
         [self addSubview:btn];
         NSInteger col = i / cols;
         NSInteger row = i % cols;
-        CGFloat btnX = row * btnW;
-        CGFloat btnY = col * btnH;
+        CGFloat btnX = col * btnW;
+        CGFloat btnY = row * btnH;
+
         btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
     }
     // 总行数
