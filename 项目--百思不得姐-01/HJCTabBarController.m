@@ -45,7 +45,7 @@
     HJCFriendTrendsViewController *friendTrendsVc = [[HJCFriendTrendsViewController alloc] init];
     [self addChildVc:friendTrendsVc title:@"关注" image:@"tabBar_friendTrends_icon" seleImage:@"tabBar_friendTrends_click_icon"];
     
-    HJCMeViewController *meVc = [[HJCMeViewController alloc] init];
+    HJCMeViewController *meVc = [[HJCMeViewController alloc] initWithStyle:UITableViewStyleGrouped];
     [self addChildVc:meVc title:@"我" image:@"tabBar_me_icon" seleImage:@"tabBar_me_click_icon"];
     
     // 添加自定义tabBar
