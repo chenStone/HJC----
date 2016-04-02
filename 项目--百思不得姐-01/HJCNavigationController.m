@@ -21,6 +21,18 @@
     attr[NSFontAttributeName] = [UIFont systemFontOfSize:18];
     [navigationBar setTitleTextAttributes:attr];
     
+    // 设置导航栏的样式
+    UIBarButtonItem *barButtonItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[HJCNavigationController class]]];
+    NSMutableDictionary *itemAttr = [NSMutableDictionary dictionary];
+    itemAttr[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    itemAttr[NSForegroundColorAttributeName] = [UIColor blackColor];
+    [barButtonItem setTitleTextAttributes:itemAttr forState:UIControlStateNormal];
+    
+    NSMutableDictionary *itemDisabledAttr = [NSMutableDictionary dictionary];
+    itemDisabledAttr[NSFontAttributeName] = [UIFont systemFontOfSize:14];
+    itemDisabledAttr[NSForegroundColorAttributeName] = [UIColor grayColor];
+    [barButtonItem setTitleTextAttributes:itemDisabledAttr forState:UIControlStateDisabled];
+    
 }
 
 #pragma mark - 初始化

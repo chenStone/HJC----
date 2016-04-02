@@ -75,11 +75,12 @@
     UIImageView *appSloganView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"app_slogan"]];
     CGFloat centerEndY = HJCScreenH * 0.2;
     CGFloat centerX = HJCScreenW * 0.5;
+    CGFloat centerBeginY = centerEndY - HJCScreenH;
     [self addSubview:appSloganView];
     
     // 添加动画
     POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
-    anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(centerX, 0)];
+    anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerBeginY)];
     anim.toValue = [NSValue valueWithCGPoint:CGPointMake(centerX, centerEndY)];
     anim.springSpeed = 10;
     anim.springBounciness = 10;

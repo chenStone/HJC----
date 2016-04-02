@@ -23,6 +23,7 @@
 		E02488ED1CAF4E6700511A1A /* HJCSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = E02488EC1CAF4E6700511A1A /* HJCSquare.m */; };
 		E02488F01CAF5E2500511A1A /* HJCSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E02488EF1CAF5E2500511A1A /* HJCSquareButton.m */; };
 		E02488F31CAFCCFC00511A1A /* HJCPostWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E02488F21CAFCCFC00511A1A /* HJCPostWordViewController.m */; };
+		E02488F81CAFE4F000511A1A /* HJCPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E02488F71CAFE4F000511A1A /* HJCPlaceholderTextView.m */; };
 		E032340B1CA128D500A7B8DF /* HJCTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E03234091CA128D500A7B8DF /* HJCTopicCell.m */; };
 		E032340C1CA128D500A7B8DF /* HJCTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E032340A1CA128D500A7B8DF /* HJCTopicCell.xib */; };
 		E03455721CA4DC30001C3066 /* HJCShowPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E03455701CA4DC30001C3066 /* HJCShowPictureViewController.m */; };
@@ -125,6 +126,8 @@
 		E02488EF1CAF5E2500511A1A /* HJCSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCSquareButton.m; sourceTree = "<group>"; };
 		E02488F11CAFCCFC00511A1A /* HJCPostWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCPostWordViewController.h; sourceTree = "<group>"; };
 		E02488F21CAFCCFC00511A1A /* HJCPostWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCPostWordViewController.m; sourceTree = "<group>"; };
+		E02488F61CAFE4F000511A1A /* HJCPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCPlaceholderTextView.h; sourceTree = "<group>"; };
+		E02488F71CAFE4F000511A1A /* HJCPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCPlaceholderTextView.m; sourceTree = "<group>"; };
 		E03234081CA128D500A7B8DF /* HJCTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCTopicCell.h; sourceTree = "<group>"; };
 		E03234091CA128D500A7B8DF /* HJCTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCTopicCell.m; sourceTree = "<group>"; };
 		E032340A1CA128D500A7B8DF /* HJCTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJCTopicCell.xib; sourceTree = "<group>"; };
@@ -440,14 +443,32 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		E03455771CA668C1001C3066 /* Publish */ = {
+		E02488F41CAFD9EE00511A1A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E034557B1CA66EF7001C3066 /* HJCPublishView.h */,
 				E034557C1CA66EF7001C3066 /* HJCPublishView.m */,
 				E034557D1CA66EF7001C3066 /* HJCPublishView.xib */,
+				E02488F61CAFE4F000511A1A /* HJCPlaceholderTextView.h */,
+				E02488F71CAFE4F000511A1A /* HJCPlaceholderTextView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E02488F51CAFD9FA00511A1A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				E02488F11CAFCCFC00511A1A /* HJCPostWordViewController.h */,
 				E02488F21CAFCCFC00511A1A /* HJCPostWordViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		E03455771CA668C1001C3066 /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				E02488F51CAFD9FA00511A1A /* Controller */,
+				E02488F41CAFD9EE00511A1A /* View */,
 			);
 			name = Publish;
 			sourceTree = "<group>";
@@ -862,6 +883,7 @@
 				E0241AC21C9BA51000E7F60A /* HJCNavigationController.m in Sources */,
 				E0F254661CA1879B00173A19 /* NSDate+Extension.m in Sources */,
 				E0ED9CAF1C9D96FC00818BA2 /* HJCRecommendTag.m in Sources */,
+				E02488F81CAFE4F000511A1A /* HJCPlaceholderTextView.m in Sources */,
 				E0241AB61C9B89AC00E7F60A /* HJCMeViewController.m in Sources */,
 				E0ED9CB71C9D9C9C00818BA2 /* HJCRecommendTagCell.m in Sources */,
 				E0F098C21C9EAEA800E5C02A /* HJCLoginRegisterViewController.m in Sources */,
