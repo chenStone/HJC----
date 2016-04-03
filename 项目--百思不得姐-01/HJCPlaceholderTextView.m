@@ -7,68 +7,110 @@
 //
 
 #import "HJCPlaceholderTextView.h"
+#import "UIView+Extension.h"
+
+#define HJCPlaceholderW 8
+#define HJCPlaceholderH 7
+@interface HJCPlaceholderTextView () <UITextViewDelegate>
+
+@property (nonatomic, weak) UILabel *placeholderLabel;
+@end
 
 @implementation HJCPlaceholderTextView
 
+- (UILabel *)placeholderLabel
+{
+    if (!_placeholderLabel) {
+        // 添加一个用来显示占位文字的label
+        UILabel *placeholderLabel = [[UILabel alloc] init];
+        placeholderLabel.x = HJCPlaceholderW;
+        placeholderLabel.numberOfLines = 0;
+        [self addSubview:placeholderLabel];
+        _placeholderLabel = placeholderLabel;
+    }
+    return _placeholderLabel;
+}
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame
+{
     if (self = [super initWithFrame:frame]) {
+        // 垂直方向上永远有弹簧效果
         self.alwaysBounceVertical = YES;
         
+        // 默认字体
         self.font = [UIFont systemFontOfSize:15];
         
+        // 默认的占位文字颜色
         self.placeholderColor = [UIColor grayColor];
         
-        // 添加通知
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textChange) name:UITextViewTextDidChangeNotification object:nil];
+        // 监听文字改变
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:nil];
     }
     return self;
 }
 
-- (void)textChange {
-    [self setNeedsDisplay];
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    self.placeholderLabel.x = HJCPlaceholderW;
+    self.placeholderLabel.y = HJCPlaceholderH;
+    self.placeholderLabel.width = self.width - 2 * self.placeholderLabel.x;
+    [self.placeholderLabel sizeToFit];
+
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)drawRect:(CGRect)rect {
-    
-    if (self.hasText) return;
-    rect.origin.x = 10;
-    rect.origin.y = 7;
-    rect.size.width -= rect.origin.x;
-    
-    NSMutableDictionary *attr = [NSMutableDictionary dictionary];
-    attr[NSFontAttributeName] = self.font;
-    attr[NSForegroundColorAttributeName] = self.placeholderColor;
-    [self.placeholder drawInRect:rect withAttributes:attr];
+/**
+ * 监听文字改变
+ */
+- (void)textDidChange
+{
+    // 只要有文字, 就隐藏占位文字label
+    self.placeholderLabel.hidden = self.hasText;
 }
 
-#pragma mark - setter方法
-- (void)setPlaceholder:(NSString *)placeholder {
-    _placeholder = placeholder;
-    
-    [self setNeedsDisplay];
-}
-
-- (void)setPlaceholderColor:(UIColor *)placeholderColor {
+#pragma mark - 重写setter
+- (void)setPlaceholderColor:(UIColor *)placeholderColor
+{
     _placeholderColor = placeholderColor;
     
-    [self setNeedsDisplay];
+    self.placeholderLabel.textColor = placeholderColor;
 }
 
-- (void)setFont:(UIFont *)font {
+- (void)setPlaceholder:(NSString *)placeholder
+{
+    _placeholder = [placeholder copy];
+    
+    self.placeholderLabel.text = placeholder;
+    
+    [self setNeedsLayout];
+}
+
+- (void)setFont:(UIFont *)font
+{
     [super setFont:font];
     
-    [self setNeedsDisplay];
+    self.placeholderLabel.font = font;
+    
+    [self setNeedsLayout];
 }
 
-- (void)setText:(NSString *)text {
+- (void)setText:(NSString *)text
+{
     [super setText:text];
     
-    [self setNeedsDisplay];
+    [self textDidChange];
+}
+
+- (void)setAttributedText:(NSAttributedString *)attributedText
+{
+    [super setAttributedText:attributedText];
+    
+    [self textDidChange];
 }
 
 @end

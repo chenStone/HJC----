@@ -34,5 +34,7 @@ CGFloat const HJCTopicCellTopcmtTitleLabelH = 21;
 
 NSString * const HJCTabBarDidSelectNotification = @"HJCTabBarDidSelectNotification";
 
+CGFloat const HJCTagMargin = 5;
+
 
 

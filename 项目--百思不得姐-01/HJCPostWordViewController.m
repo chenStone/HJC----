@@ -8,8 +8,16 @@
 
 #import "HJCPostWordViewController.h"
 #import "HJCPlaceholderTextView.h"
+#import "HJCAddTagToolBar.h"
+#import "UIView+Extension.h"
 
-@implementation HJCPostWordViewController
+@interface HJCPostWordViewController () <UITextViewDelegate>
+
+@property (nonatomic, weak) HJCAddTagToolBar *toolbar;
+
+@end
+
+@implementation HJCPostWordViewController 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,6 +27,36 @@
     
     // 设置textView
     [self setupTextView];
+    
+    [self setupToolbar];
+    
+}
+
+- (void)setupToolbar {
+    HJCAddTagToolBar *toolbar = [HJCAddTagToolBar toolbar];
+    toolbar.width = self.view.width;
+    toolbar.y = self.view.height - toolbar.height;
+    [self.view addSubview:toolbar];
+    self.toolbar = toolbar;
+    
+    // 添加通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+-  (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)keyboardWillChangeFrame:(NSNotification *)notification {
+    // 键盘最终的frame
+    CGRect keyboardF = [notification.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    // 动画时间
+    CGFloat duration = [notification.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.toolbar.transform = CGAffineTransformMakeTranslation(0,  keyboardF.origin.y - self.view.height);
+    }];
 }
 
 /**
@@ -28,8 +66,9 @@
     HJCPlaceholderTextView *textView = [[HJCPlaceholderTextView alloc] init];
     textView.frame = self.view.bounds;
     textView.placeholder = @"这里添加文字，请勿发送色情、政治等违反国家法律的内容，违者封号处理。";
-    [textView becomeFirstResponder];
+    textView.delegate = self;
     [self.view addSubview:textView];
+    
 }
 /**
  *  设置导航栏
@@ -52,13 +91,22 @@
 }
 
 - (void)cancel {
-    
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)post {
     NSLog(@"发布了");
 }
+
+
+#pragma mark - <UITextViewDelegate>方法
+- (void)textViewDidChange:(UITextView *)textView {
+    self.navigationItem.rightBarButtonItem.enabled = textView.hasText;
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
+}
+
 
 @end

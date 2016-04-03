@@ -74,6 +74,10 @@
 		E0F3AEE61C9F8D7F00BD2144 /* HJCPushGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F3AEE51C9F8D7F00BD2144 /* HJCPushGuideView.xib */; };
 		E0F5DC3B1CA40D5C00A5FAD7 /* HJCTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F5DC3A1CA40D5C00A5FAD7 /* HJCTopicPictureView.m */; };
 		E0F5DC3D1CA40DA400A5FAD7 /* HJCTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F5DC3C1CA40DA400A5FAD7 /* HJCTopicPictureView.xib */; };
+		E0F6B1B51CB0D8D2008B6DAB /* HJCAddTagToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F6B1B41CB0D8D2008B6DAB /* HJCAddTagToolBar.m */; };
+		E0F6B1B91CB0D979008B6DAB /* HJCAddTagToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F6B1B81CB0D979008B6DAB /* HJCAddTagToolBar.xib */; };
+		E0F6B1BC1CB10E4B008B6DAB /* HJCAddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F6B1BB1CB10E4B008B6DAB /* HJCAddTagViewController.m */; };
+		E0F6B1BF1CB1614C008B6DAB /* HJCTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F6B1BE1CB1614C008B6DAB /* HJCTagButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -216,6 +220,13 @@
 		E0F5DC391CA40D5C00A5FAD7 /* HJCTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCTopicPictureView.h; sourceTree = "<group>"; };
 		E0F5DC3A1CA40D5C00A5FAD7 /* HJCTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCTopicPictureView.m; sourceTree = "<group>"; };
 		E0F5DC3C1CA40DA400A5FAD7 /* HJCTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJCTopicPictureView.xib; sourceTree = "<group>"; };
+		E0F6B1B31CB0D8D2008B6DAB /* HJCAddTagToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCAddTagToolBar.h; sourceTree = "<group>"; };
+		E0F6B1B41CB0D8D2008B6DAB /* HJCAddTagToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCAddTagToolBar.m; sourceTree = "<group>"; };
+		E0F6B1B81CB0D979008B6DAB /* HJCAddTagToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HJCAddTagToolBar.xib; sourceTree = "<group>"; };
+		E0F6B1BA1CB10E4B008B6DAB /* HJCAddTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCAddTagViewController.h; sourceTree = "<group>"; };
+		E0F6B1BB1CB10E4B008B6DAB /* HJCAddTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCAddTagViewController.m; sourceTree = "<group>"; };
+		E0F6B1BD1CB1614C008B6DAB /* HJCTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJCTagButton.h; sourceTree = "<group>"; };
+		E0F6B1BE1CB1614C008B6DAB /* HJCTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJCTagButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -451,6 +462,11 @@
 				E034557D1CA66EF7001C3066 /* HJCPublishView.xib */,
 				E02488F61CAFE4F000511A1A /* HJCPlaceholderTextView.h */,
 				E02488F71CAFE4F000511A1A /* HJCPlaceholderTextView.m */,
+				E0F6B1B31CB0D8D2008B6DAB /* HJCAddTagToolBar.h */,
+				E0F6B1B41CB0D8D2008B6DAB /* HJCAddTagToolBar.m */,
+				E0F6B1B81CB0D979008B6DAB /* HJCAddTagToolBar.xib */,
+				E0F6B1BD1CB1614C008B6DAB /* HJCTagButton.h */,
+				E0F6B1BE1CB1614C008B6DAB /* HJCTagButton.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -460,6 +476,8 @@
 			children = (
 				E02488F11CAFCCFC00511A1A /* HJCPostWordViewController.h */,
 				E02488F21CAFCCFC00511A1A /* HJCPostWordViewController.m */,
+				E0F6B1BA1CB10E4B008B6DAB /* HJCAddTagViewController.h */,
+				E0F6B1BB1CB10E4B008B6DAB /* HJCAddTagViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -779,6 +797,7 @@
 				E0ED9C9E1C9C4BAC00818BA2 /* HJCRecommendCategoryCell.xib in Resources */,
 				E0F5DC3D1CA40DA400A5FAD7 /* HJCTopicPictureView.xib in Resources */,
 				E0ED9CA31C9CC8F900818BA2 /* HJCRecommendUserCell.xib in Resources */,
+				E0F6B1B91CB0D979008B6DAB /* HJCAddTagToolBar.xib in Resources */,
 				E0EE415D1CABC2EA00BBC1AB /* HJCCommentCell.xib in Resources */,
 				E06830131CA7F143008093FC /* HJCTopicVideoView.xib in Resources */,
 				E068300E1CA7DE15008093FC /* HJCTopicVoiceView.xib in Resources */,
@@ -864,6 +883,7 @@
 				E02488E21CAE8FBD00511A1A /* UIImage+HJCExtension.m in Sources */,
 				E0F173AD1CA04C740060E237 /* HJCTopic.m in Sources */,
 				E0ED9C841C9C088300818BA2 /* HJCRecommendController.m in Sources */,
+				E0F6B1B51CB0D8D2008B6DAB /* HJCAddTagToolBar.m in Sources */,
 				E0241AAE1C9B884700E7F60A /* HJCNewViewController.m in Sources */,
 				E032340B1CA128D500A7B8DF /* HJCTopicCell.m in Sources */,
 				E03455761CA50329001C3066 /* HJCProgressView.m in Sources */,
@@ -874,6 +894,7 @@
 				E06830191CA823F6008093FC /* HJCUser.m in Sources */,
 				E02488F01CAF5E2500511A1A /* HJCSquareButton.m in Sources */,
 				E0F098CB1C9F4E0500E5C02A /* HJCTextField.m in Sources */,
+				E0F6B1BC1CB10E4B008B6DAB /* HJCAddTagViewController.m in Sources */,
 				E0EDAF221C9ADC2700E391E2 /* AppDelegate.m in Sources */,
 				E0EDAF1F1C9ADC2700E391E2 /* main.m in Sources */,
 				E0241AC51C9BBEC500E7F60A /* UIBarButtonItem+Extension.m in Sources */,
@@ -882,6 +903,7 @@
 				E0241AAA1C9B881700E7F60A /* HJCEssenceViewController.m in Sources */,
 				E0241AC21C9BA51000E7F60A /* HJCNavigationController.m in Sources */,
 				E0F254661CA1879B00173A19 /* NSDate+Extension.m in Sources */,
+				E0F6B1BF1CB1614C008B6DAB /* HJCTagButton.m in Sources */,
 				E0ED9CAF1C9D96FC00818BA2 /* HJCRecommendTag.m in Sources */,
 				E02488F81CAFE4F000511A1A /* HJCPlaceholderTextView.m in Sources */,
 				E0241AB61C9B89AC00E7F60A /* HJCMeViewController.m in Sources */,
